@@ -1,0 +1,153 @@
+@echo off
+chcp 65001 >nul
+:main
+cls
+color 0a
+title ::Network Admin::
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+echo ═════════════════════════════════════║ Bienvenido a Net-Admin Tool
+echo [1] Ping       ║ [6] Tracert         ║ Creado y Desarrollado por el 
+echo [2] Path Ping  ║ [7] Get Mac Address ║ @Dedsec para Adminstrar el Wifi
+echo [3] IP-Config  ║ [8] Netsh Show      ║ Personal y tener la maxima info
+echo [4] NslookUp   ║ [9] Netsh Profiles  ║ Possible sobre nuestra red así
+echo [5] Net Status ║ [0] Instrucciones   ║ poder estar a Salvo de Ataques.
+echo [11] Net View  ║ [10] Expulsar       ║ Podras Expulsar de la Red Facil
+echo ═══════════════║═════════════════════║ Escribe "Exit" Cerrarlo via Cmd 
+echo ══════════════════════════════════════════════════════════════════════
+set /p var=">>rootkit@Net-Admin:"
+IF '%var%' == '0' GOTO instrucciones
+IF '%var%' == '1' GOTO ping
+IF '%var%' == '2' GOTO pathping
+IF '%var%' == '3' GOTO ipconfig
+IF '%var%' == '4' GOTO nslookup
+IF '%var%' == '5' GOTO netstat
+IF '%var%' == '6' GOTO tracert
+IF '%var%' == '7' GOTO getmac
+IF '%var%' == '8' GOTO netshow
+IF '%var%' == '9' GOTO netshowprofile
+IF '%var%' == '10' GOTO kickear
+IF '%var%' == '11' GOTO netview
+
+
+:instrucciones
+title ::Instrucciones - NetAdmin::
+cls
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+echo [1] Ping - Comprueba el Estado de un Servidor Enviando Paquetes
+echo [2] Path Ping - Realiza un Ping mas completo con mas Informacion
+echo [3] IP-Config - Muestra Informacion sobre la Targeta de Red (IP)
+echo [4] Nslookup - Muestra el Estado del DNS para Detectar Problemas
+echo [5] Net Stat - Muestra todas las conexiones abiertas en nuestro PC
+echo [6] Tracert - Traza una Ruta de el PC al Servidor y ver las conexiones
+echo [7] Get MAC - Muestra la Dirección MAC de Nuestro equipo (PC)
+echo [8] Netsh Show - Muestra Información sobre la Red Conectada Actual
+echo [9] Netsh Show Profiles - Muestra Informacion de todas las redes del PC
+echo [0] Exit - Comando para salir de forma rapida de el Programa y nada mas
+echo ═══════════════════════════════════════════════════════════════════════
+pause
+goto :main
+
+:ping
+title ::Ping - NetAdmin::
+cls
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+set /p IP=">>Introduzca IP:"
+echo ══════════════════════════════════════════════════════════════════════
+echo Pulsa CTRL + C Para Parar el Ping y acabar la Solicitud
+echo ══════════════════════════════════════════════════════════════════════
+echo STATUS: Verificando Conexión en %IP% con/ %B% Paquetes/s
+echo ══════════════════════════════════════════════════════════════════════
+:top
+PING -n 5 %IP% | FIND "TTL="
+title :: Conectando a %IP%... ::
+IF ERRORLEVEL 1 (echo %IP% STATUS: Servidor %IP% Desconectado)
+echo ══════════════════════════════════════════════════════════════════════
+echo [+] Ping Realizado de Forma Correcta a %IP%
+echo ══════════════════════════════════════════════════════════════════════
+pause
+goto main
+
+
+:ipconfig
+title ::IP-Config - NetAdmin::
+cls
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+echo [+] Información de la Targeta Red y las Conexiones/IP's Mostradas [+] 
+ipconfig /all
+echo ══════════════════════════════════════════════════════════════════════
+echo [-] Para Volver al Menu Principal Pulse [ENTER]
+echo ══════════════════════════════════════════════════════════════════════
+pause
+goto main
+
+
+:pathping
+title ::PathPing - NetAdmin::
+cls
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+set /p IP=">>Introduzca IP:"
+echo ══════════════════════════════════════════════════════════════════════
+echo STATUS: Realizando PathPing a %IP% Porfavor Espere el Informe
+echo ══════════════════════════════════════════════════════════════════════
+pathping %IP%
+echo ══════════════════════════════════════════════════════════════════════
+echo Path Ping Realizado Correctamente a %IP%
+echo ══════════════════════════════════════════════════════════════════════
+echo Para Volver al Menu Presione [ENTER]
+echo ══════════════════════════════════════════════════════════════════════
+pause
+goto main
+
+
+:netview
+title ::PathPing - NetAdmin::
+cls
+echo ███╗   ██╗███████╗████████╗    █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗
+echo ████╗  ██║██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║
+echo ██╔██╗ ██║█████╗     ██║█████╗███████║██║  ██║██╔████╔██║██║██╔██╗ ██║
+echo ██║╚██╗██║██╔══╝     ██║╚════╝██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║
+echo ██║ ╚████║███████╗   ██║      ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
+echo ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝
+echo Network-Admin Herramienta de Administración de Redes Wifi/Network v1.2
+echo ══════════════════════════════════════════════════════════════════════
+net view
+echo ══════════════════════════════════════════════════════════════════════
+echo [+] Net View Mostrado Correctamente Presiona [ENTER]
+echo ══════════════════════════════════════════════════════════════════════
+pause
+goto main
